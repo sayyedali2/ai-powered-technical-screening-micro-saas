@@ -22,7 +22,7 @@ export default function Home() {
   const onSubmit = async (data: any) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/ai', {
+      const response = await fetch('https://ai-powered-technical-screening-micro-saas.onrender.comai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: data.question })
@@ -53,7 +53,7 @@ export default function Home() {
       
       <Container maxWidth="md">
         <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
+          <Stack direction="row" spacing={1} sx={{ mb: 2, justifyContent: 'center', alignItems: 'center' }}>
             <AutoAwesomeIcon sx={{ color: '#6366f1', fontSize: 32 }} />
             <Typography variant="overline" sx={{ fontWeight: 800, letterSpacing: 2, color: '#6366f1' }}>
               AI Powered Platform
@@ -129,9 +129,11 @@ export default function Home() {
         onClose={() => setOpen(false)}
         maxWidth="sm"
         fullWidth
-        TransitionComponent={Fade}
-        PaperProps={{
-          sx: { borderRadius: 5, p: 1, boxShadow: '0 20px 25px -5px rgba(0,0,0,0.2)' }
+        slots={{ transition: Fade }}
+        slotProps={{
+          paper: {
+            sx: { borderRadius: 5, p: 1, boxShadow: '0 20px 25px -5px rgba(0,0,0,0.2)' }
+          }
         }}
       >
         <DialogTitle sx={{ m: 0, p: 3, display: 'flex', alignItems: 'center', gap: 1.5 }}>

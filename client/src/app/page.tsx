@@ -22,7 +22,7 @@ export default function Home() {
   const onSubmit = async (data: any) => {
     setLoading(true);
     try {
-      const response = await fetch('https://ai-powered-technical-screening-micro-saas.onrender.comai', {
+      const response = await fetch('https://ai-powered-technical-screening-micro-saas.onrender.com/ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: data.question })
